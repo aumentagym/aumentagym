@@ -76,7 +76,7 @@ fbq('track', 'PageView');
     <div class="container">
         <h2>Paso 1: Cuéntanos sobre tu gimnasio</h2>
         <form id="gymForm" action="https://formspree.io/f/mqegawne" method="POST">
-            <input type="hidden" name="_next" value="https://aumentagym.netlify.app/gracias.html">
+            <input type="hidden" name="_next" value="https://aumentagym.github.io/aumentagym/gracias.html">
             <div class="form-option">
                 <input type="text" name="gym" placeholder="Nombre del Gimnasio *" required>
                 <input type="email" name="email" placeholder="Tu email *" required>
@@ -112,7 +112,7 @@ fbq('track', 'PageView');
             });
 
             if (response.ok) {
-                window.location.href = 'https://aumentagym.netlify.app/gracias.html';
+                window.location.href = 'https://aumentagym.github.io/aumentagym/gracias.html';
             } else {
                 throw new Error('Error del servidor');
             }
