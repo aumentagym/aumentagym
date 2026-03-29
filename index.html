@@ -75,8 +75,9 @@ fbq('track', 'PageView');
   <section id="contacto" class="contact-section">
     <div class="container">
         <h2>Paso 1: Cuéntanos sobre tu gimnasio</h2>
-        <form id="gymForm" action="https://formspree.io/f/mqegawne" method="POST">
-            <input type="hidden" name="_next" value="https://aumentagym.github.io/aumentagym/gracias.html">
+        <form id="gymForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="429dd191-a336-4ddd-ae98-86c44e0f9c71">
+            <input type="hidden" name="redirect" value="https://aumentagym.github.io/aumentagym/gracias.html">
             <div class="form-option">
                 <input type="text" name="gym" placeholder="Nombre del Gimnasio *" required>
                 <input type="email" name="email" placeholder="Tu email *" required>
@@ -105,7 +106,7 @@ fbq('track', 'PageView');
 
         try {
             const data = new FormData(form);
-            const response = await fetch(form.action, {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: data,
                 headers: { 'Accept': 'application/json' }
