@@ -157,10 +157,37 @@ input, textarea {
 footer { background: var(--dark); color: white; padding: 40px; text-align: center; }
 
 /* RESPONSIVO MÓVIL */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     section { padding: 40px 5%; }
     .hero h1 { font-size: 2rem; }
     .thanks-container { margin: 20px; padding: 30px 15px; }
     .thanks-container h1 { font-size: 1.8rem; }
     .calendly-inline-widget { height: 600px !important; }
-}		
+
+    /* Ocultar menú de navegación en móvil */
+    nav ul { display: none; }
+
+    /* Header ocupa todo el ancho */
+    header { padding: 12px 5%; width: 100%; }
+
+    /* Hero más compacto */
+    .hero { padding: 20px 5%; height: auto; min-height: 60vh; }
+
+    /* Formulario sin padding excesivo */
+    .form-option { padding: 1.5rem; }
+
+    /* Inputs no se salen */
+    input, textarea { max-width: 100%; }
+
+    /* Testimonios en columna */
+    .testimonial-container { flex-direction: column; align-items: center; gap: 30px; }
+    blockquote { max-width: 100%; }
+
+    /* Footer */
+    footer { padding: 30px 5%; }
+}
