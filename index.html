@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AumentaGym | Marketing para Gimnasios</title>
+    <link rel="stylesheet" href="style.css">
+       <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '792923053403739');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AUMENTA<span>GYM</span></div>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#clientes">Resultados</a></li>
+                <li><a href="#contacto" class="btn-nav">¡Crecer ahora!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Llenamos tu gimnasio de clientes reales</h1>
+        <p>Estrategias de marketing digital diseñadas exclusivamente para centros deportivos y boxes de CrossFit.</p>
+        <a href="#contacto" class="btn-primary">Solicitar Auditoría Gratis</a>
+    </section>
+
+    <section id="servicios" class="info-section">
+        <h2>¿Cómo ayudamos a tu gimnasio?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ads en Facebook e IG</h3>
+                <p>Campañas segmentadas para atraer personas que viven cerca de tu local.</p>
+            </div>
+            <div class="card">
+                <h3>SEO Local</h3>
+                <p>Aparece el primero cuando alguien busque "gimnasios cerca de mí".</p>
+            </div>
+            <div class="card">
+                <h3>Retención</h3>
+                <p>Email marketing para que tus socios actuales no se den de baja.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes" class="testimonials">
+        <h2>Lo que dicen los dueños de gimnasios</h2>
+        <div class="testimonial-container">
+            <blockquote>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Carlos R." class="testimonial-photo">
+                "Pasamos de 100 a 250 socios en solo 3 meses con su estrategia."
+                <cite>— Carlos R., Dueño de Iron Gym</cite>
+            </blockquote>
+            <blockquote>
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80" alt="Elena M." class="testimonial-photo">
+                "El mejor retorno de inversión que hemos tenido en publicidad."
+                <cite>— Elena M., Box CrossFit Norte</cite>
+            </blockquote>
+        </div>
+    </section>
+
+  <section id="contacto" class="contact-section">
+    <div class="container">
+        <h2>Paso 1: Cuéntanos sobre tu gimnasio</h2>
+        <form id="gymForm" action="https://formspree.io/f/mqegawne" method="POST">
+            <input type="hidden" name="_next" value="https://aumentagym.netlify.app/gracias.html">
+            <div class="form-option">
+                <input type="text" name="gym" placeholder="Nombre del Gimnasio *" required>
+                <input type="email" name="email" placeholder="Tu email *" required>
+                <textarea name="objetivo" placeholder="Tu reto actual" rows="3"></textarea>
+                
+                <button type="submit" class="btn-primary w-full" id="submitBtn">SOLICITAR AUDITORÍA GRATIS</button>
+                <p id="form-status" style="display:none; margin-top:12px; text-align:center; font-weight:bold;"></p>
+            </div>
+        </form>
+    </div>
+</section>
+    <footer>
+        <p>&copy; 2026 AumentaGym Marketing. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+    const form = document.getElementById('gymForm');
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+        status.style.display = 'none';
+
+        try {
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                window.location.href = 'https://aumentagym.netlify.app/gracias.html';
+            } else {
+                throw new Error('Error del servidor');
+            }
+        } catch (err) {
+            status.style.display = 'block';
+            status.style.color = '#cc0000';
+            status.textContent = '⚠️ Hubo un problema al enviar. Por favor escríbenos a aumentagym@gmail.com';
+            btn.disabled = false;
+            btn.textContent = 'SOLICITAR AUDITORÍA GRATIS';
+        }
+    });
+    </script>
+    </body>
+    </html>
